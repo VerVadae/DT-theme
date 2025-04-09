@@ -5,45 +5,29 @@
  * @package Digital_Taverna
  */
 
-// Theme setup
 function digitaltaverna_setup() {
-    // Add theme support
+    // Theme support
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
     add_theme_support('customize-selective-refresh-widgets');
     add_theme_support('editor-styles');
     add_theme_support('responsive-embeds');
-    
+
     // Register navigation menus
     register_nav_menus(array(
-        'primary-menu' => __('Primary Menu', 'digitaltaverna'),
-        'footer-menu' => __('Footer Menu', 'digitaltaverna'),
-        'services-menu' => __('Services Menu', 'digitaltaverna')
+        'primary-menu' => __('Primary Menu', 'digital-taverna'),
+        'footer-menu' => __('Footer Menu', 'digital-taverna'),
     ));
 }
 add_action('after_setup_theme', 'digitaltaverna_setup');
 
-// Enqueue scripts and styles
 function digitaltaverna_scripts() {
-    // Enqueue Google Fonts
-    wp_enqueue_style('google-font-press-start', 'https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap', array(), null);
-    wp_enqueue_style('google-font-poppins', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap', array(), null);
-    
-    // Enqueue main stylesheet
-    wp_enqueue_style('digitaltaverna-style', get_stylesheet_uri(), array(), '1.0.0');
-    
-    // Enqueue JavaScript
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('digitaltaverna-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0.0', true);
-    
-    // Add JavaScript for contact form processing
-    if (is_page('contact')) {
-        wp_localize_script('digitaltaverna-script', 'ajax_object', array(
-            'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('contact_form_nonce')
-        ));
-    }
+    // Enqueue styles
+    wp_enqueue_style('digital-taverna-style', get_stylesheet_uri(), array(), '1.0.0');
+
+    // Enqueue scripts
+    wp_enqueue_script('digital-taverna-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'digitaltaverna_scripts');
 
