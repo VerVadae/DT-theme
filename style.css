@@ -2,17 +2,19 @@
 Theme Name: Digital Taverna
 Theme URI: https://digitaltaverna.com
 Author: Digital Taverna
+Author URI: https://example.com
 Description: Custom WordPress theme for Digital Taverna
 Version: 1.0
-Text Domain: digitaltaverna
+Text Domain: digital-taverna
 */
 
-/* 
-   Digital Taverna - Main Stylesheet
-   A pixel art themed website for iGaming marketing and branding services
-*/
-
-/* ---------- Variables ---------- */
+/* Base Styles */
+body {
+    background-color: #2C1B0F; /* Tavern background color */
+    color: #ECF0F1; /* Light text color */
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
 :root {
     --primary: #FFD700;          /* Gold */
     --secondary: #4682B4;        /* Steel Blue */
